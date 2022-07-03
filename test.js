@@ -1,14 +1,9 @@
 var solc = require('solc');
+var fs = require("fs");
+var path = require('path')
 
-var contract=`
-    //SPDX-License-Identifier:MIT
-    pragma solidity ^0.8.0;
-    contract hello{
-       string public hii='hello world';
-       /// @dev message this is a dev
-       /// @param message this is a param
-       function update(string memory message) public{hii=message;}
-    }`
+var contract= fs.readFileSync(path.join(__dirname,"hello.txt"), 'utf8')
+// console.log(contract)
 
 var input = {
   language: 'Solidity',
